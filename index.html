@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>random-string-generator</title>
+</head>
+
+<body>
+  <section>
+    <div>
+      <h1>Random String Generator</h1>
+      <p>Create a randomized string for passwords, or other uses of randomized characters. Uses the browser's Crypto Api
+        for true randomness.</p>
+      <form id="form">
+        <div>
+          <label for="length-input">String Length</label>
+          <div class="range-wrapper">
+            <input id="length-input" name="length" type="range" min="1" max="100" value="20">
+            <span id="string-length"></span>
+          </div>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="uppercase" id="uppercase" checked>
+          <label for="uppercase">uppercase</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="lowercase" id="lowercase" checked>
+          <label for="lowercase">lowercase</label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" name="numbers" id="numbers" checked>
+          <label for="numbers">numbers</label>
+        </div>
+        <div>
+          <div class="symbol-label">
+            <label for="symbols">Symbols</label>
+            <button type="button" id="select-all">All</button>
+            <button type="button" id="select-none">None</button>
+          </div>
+          <div id="symbols" class="symbols"></div>
+        </div>
+        <div class="delimeter-wrapper">
+          <div class="delimeter-header">
+            <label for="delimeter">Use Delimeter</label>
+            <div class="delimeters">
+              <div>
+                <input type="radio" name="useDelimeter" id="yes-delimeter" value="1"><label
+                  for="yes-delimeter">yes</label>
+              </div>
+              <div>
+                <input type="radio" name="useDelimeter" id="no-delimeter" value="0" checked><label
+                  for="no-delimeter">no</label>
+              </div>
+            </div>
+          </div>
+          <div id="delimeter-controls" hidden>
+            <div class="delimeters">
+              <div>
+                <input type="radio" name="delimeter" id="pipe" value="124"><label for="pipe">|</label>
+              </div>
+              <div>
+                <input type="radio" name="delimeter" id="carat" value="94" checked><label for="carat">^</label>
+              </div>
+              <div>
+                <input type="radio" name="delimeter" id="dash" value="45"><label for="dash">-</label>
+              </div>
+            </div>
+
+            <small>using this is breaks true cryptography, but makes the hash more human readable;
+              it inserts a delimeter at a semiregular interval</small>
+          </div>
+        </div>
+        <div>
+          <input id="submit" type="submit" value="Submit">
+        </div>
+      </form>
+
+      <div class="result-wrapper"><span>Result:</span><span id="result"></span></div>
+    </div>
+  </section>
+</body>
+<script src="./init.js" type="text/javascript"></script>
+<script src="./submit.js" type="text/javascript"></script>
+
+<style>
+  /*
+     Styling was not the purpose of this exercise, and this is a minimal presentation.
+   */
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  section {
+    margin: 0 20px;
+  }
+
+  section>div {
+    padding: 20px 0;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+
+  form {
+    margin-top: 40px;
+  }
+
+  form>div {
+    margin-top: 15px;
+  }
+
+  label,
+  input {
+    display: block;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  .delimeters>div,
+  .result-wrapper,
+  .range-wrapper,
+  .symbols>div,
+  .symbol-label,
+  .checkbox {
+    display: flex;
+    gap: 10px;
+  }
+
+  .delimeters,
+  .delimeter-header {
+    display: flex;
+    gap: 20px;
+  }
+
+  .symbols {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    margin-top: 8px;
+  }
+
+  .symbols>div {
+    flex: 0 0 33.333%;
+  }
+
+
+  .result-wrapper {
+    margin-top: 10px;
+  }
+
+  .result-wrapper>span:first-child {
+    font-weight: bold;
+  }
+
+  .delimeter-wrapper {
+    min-height: 60px;
+  }
+</style>
+
+</html>
