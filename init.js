@@ -42,8 +42,8 @@ function initSlider() {
 function initSymbolRectivity() {
   const allSymbols = document.querySelectorAll('.symbols input')
 
-  document.getElementById('select-all').onclick = () => allSymbols.forEach(symbol => symbol.setAttribute('checked', ''));
-  document.getElementById('select-none').onclick = () => allSymbols.forEach(symbol => symbol.removeAttribute('checked'));
+  document.getElementById('select-all').onclick = () => allSymbols.forEach(symbol => symbol.checked = true);
+  document.getElementById('select-none').onclick = () => allSymbols.forEach(symbol => symbol.checked = false);
 }
 
 function initDelimeter() {

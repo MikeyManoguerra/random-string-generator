@@ -45,7 +45,7 @@ function insertDelimeter(string, delimeterCode) {
   while (!endReached) {
     const interval = intervalFromRange();
     const front = string.slice(0, previousDelimeterIndex += interval);
-    const back = string.slice(previousDelimeterIndex += 1); //account fo width of interval in string
+    const back = string.slice(previousDelimeterIndex += 1); //account for width of delimeter in string
 
     if (!back.length) {
       endReached = true;
