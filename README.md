@@ -1,5 +1,7 @@
 # Random String Generator
 
+_see it here_: https://mikeymanoguerra.github.io/random-string-generator/
+
 ## What is it? 
 
 - Uses browser crypto API to generate a random string.
